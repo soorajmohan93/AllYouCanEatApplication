@@ -20,6 +20,9 @@ public interface UserOrderDao {
     @Query("DELETE FROM order_table")
     void deleteAll();
 
+    @Query("DELETE FROM order_table WHERE order_id = :orderId")
+    void deleteFromOrderId(int orderId);
+
     @Delete
     void deleteOrder(UserOrder userOrder);
 

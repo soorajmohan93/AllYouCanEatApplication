@@ -11,13 +11,16 @@
         android:theme="@style/Theme.AllYouCanEatApplication">
         <activity
             android:name=".UpdateOrderItem"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".PreviousOrderItems"/>
         <activity
             android:name=".PreviousOrderItems"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".PreviousOrder"/>
         <activity
             android:name=".PreviousOrder"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".Cart"
             android:exported="true"

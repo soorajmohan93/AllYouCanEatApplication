@@ -8,13 +8,14 @@
         <entry key="app/src/main/res/layout/activity_cart.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_new_order.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_previous_order.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_previous_order_items.xml" value="0.253125" />
+        <entry key="app/src/main/res/layout/activity_previous_order.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_previous_order_items.xml" value="0.15384615384615385" />
         <entry key="app/src/main/res/layout/activity_update_order_item.xml" value="0.253125" />
         <entry key="app/src/main/res/layout/recyclerview_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/recyclerview_order.xml" value="0.1296875" />
-        <entry key="app/src/main/res/layout/recyclerview_order_id.xml" value="0.253125" />
+        <entry key="app/src/main/res/layout/recyclerview_order_id.xml" value="0.25" />
         <entry key="app/src/main/res/menu/place_order_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/previous_order_menu.xml" value="0.253125" />
       </map>
     </option>
   </component>

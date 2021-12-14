@@ -38,7 +38,7 @@
 
                 <TextView
 
-                    android:id="@+id/itemTEdit"
+                    android:id="@+id/itemToEdit"
                     style="@style/AllText.Item"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

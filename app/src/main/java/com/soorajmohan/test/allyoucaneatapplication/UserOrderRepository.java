@@ -32,8 +32,11 @@ public class UserOrderRepository {
     }
 
     public LiveData<List<UserOrder>> getOrderItems(int orderId) {
-        Log.d("debug_rep", String.valueOf(orderId));
         return userOrderDao.getOrderItems(orderId);
+    }
+
+    public void deleteFromOrderId(int orderId) {
+        new deleteFromOrderIdAsyncTask(userOrderDao).execute(orderId);
     }
 
 
@@ -80,6 +83,20 @@ public class UserOrderRepository {
         @Override
         protected Void doInBackground(Void... voids) {
             mAsyncTaskDao.deleteAll();
+            return null;
+        }
+    }
+
+    private static class deleteFromOrderIdAsyncTask extends AsyncTask<Integer, Void, Void> {
+        private UserOrderDao mAsyncTaskDao;
+
+        deleteFromOrderIdAsyncTask(UserOrderDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final Integer... params) {
+            mAsyncTaskDao.deleteFromOrderId(params[0]);
             return null;
         }
     }

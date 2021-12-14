@@ -35,7 +35,8 @@
                 android:id="@+id/recyclerViewOrderId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/recyclerview_order_id"/>
+                android:background="#FFFFFF"
+                tools:listitem="@layout/recyclerview_order_id" />
 
         </LinearLayout>
     </ScrollView>

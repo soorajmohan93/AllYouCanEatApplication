@@ -34,6 +34,10 @@ public class UserOrderViewModel extends AndroidViewModel
         return repository.getOrderItems(orderId);
     }
 
+    public void deleteFromOrderId(int orderId) {
+        repository.deleteFromOrderId(orderId);
+    }
+
 
     public void insert(UserOrder userOrder) {
         repository.insert(userOrder);
@@ -43,7 +47,7 @@ public class UserOrderViewModel extends AndroidViewModel
         repository.deleteAll();
     }
 
-    public void deleteWord(UserOrder userOrder) {
+    public void deleteOrder(UserOrder userOrder) {
         repository.deleteOrder(userOrder);
     }
 

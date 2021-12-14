@@ -40,7 +40,8 @@ public class PrevOrderAdapter  extends RecyclerView.Adapter<PrevOrderAdapter.Ord
             String itemPrice = "C$" + current.getUnitPrice() * current.getQuantity();
             holder.itemTextView.setText(current.getItemName());
             holder.itemPriceView.setText(itemPrice);
-            holder.itemQuantity.setText(String.valueOf(current.getQuantity()));
+            String quantityText = "Quantity: " + current.getQuantity();
+            holder.itemQuantity.setText(quantityText);
         }
         else
             holder.itemTextView.setText(R.string.no_orders);
