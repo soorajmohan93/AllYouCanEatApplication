@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddToOrder">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/newOrderHeading"
+                style="@style/AllText.TitleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/AddToOrderHeading" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:id="@+id/itemToAdd"
+                    style="@style/AllText.Item"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    tools:text="Placeholder Text"
+                    android:layout_weight="2"/>
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"/>
+
+                <TextView
+                    android:id="@+id/itemToAddPrice"
+                    style="@style/AllText.Item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/itemPrice" />
+
+
+            </LinearLayout>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"/>
+            <TextView
+                android:id="@+id/itemToAddDescription"
+                style="@style/AllText.Description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Description text" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+                <!-- Item reduce-->
+                <Button
+                    android:id="@+id/quantityReduce"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Reduce"
+                    tools:text="@string/Reduce" />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3" />
+
+                <TextView
+                    android:id="@+id/quantity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Quantity"
+                    tools:text="@string/Quantity"
+                    android:layout_weight="1"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3" />
+                <Button
+                    android:id="@+id/quantityIncrease"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Increase"
+                    tools:text="@string/Increase" />
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/itemTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/itemTotal"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/addToCart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_to_cart" />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

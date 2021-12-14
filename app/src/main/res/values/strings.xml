@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">ALL YOU CAN EAT</string>
+    <string name="AppHeading">All you can eat</string>
+    <string name="prevOrder">Previous Orders</string>
+    <string name="newOrder">New Order</string>
+    <string name="newOrderHeading">Create New Order</string>
+    <string name="addItem">Add</string>
+    <string name="itemPrice">Item Price</string>
+    <string name="AddToOrderHeading">Add to Order</string>
+    <string name="Cart">Place Order</string>
+    <string name="Quantity">0</string>
+    <string name="Increase">+</string>
+    <string name="Reduce">-</string>
+    <string name="cartHeading">Order Number:</string>
+    <string name="placeOrder">Place Order</string>
+    <string name="orderTotal">Order Total:</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="itemTotal">Item Total</string>
+    <string name="updateCart">Update Cart</string>
+    <string name="order_number">Order Number:</string>
+    <string name="no_orders">No Orders</string>
+    <string name="previous_orders">Previous Orders</string>
+    <string name="order_id">Order ID: </string>
+    <string name="edit_order">Edit Your Order Item</string>
+</resources>
