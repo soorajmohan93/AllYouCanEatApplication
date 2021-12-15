@@ -158,7 +158,7 @@ setting the quantity to zero will delete the item from database-->
                     android:id="@+id/updateToCart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/updateCart" />
+                    android:text="@string/updateOrder" />
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

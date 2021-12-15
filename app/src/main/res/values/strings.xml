@@ -18,4 +18,5 @@
     <string name="edit_order">Edit Your Order Item</string>
     <string name="delete_all_order">Delete All Orders</string>
     <string name="item_image">Item Image</string>
+    <string name="updateOrder">Update Order</string>
 </resources>
