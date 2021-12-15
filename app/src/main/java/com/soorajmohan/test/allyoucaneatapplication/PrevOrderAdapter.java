@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,12 +18,13 @@ public class PrevOrderAdapter  extends RecyclerView.Adapter<PrevOrderAdapter.Ord
     private final LayoutInflater mInflater;
     private List<UserOrder> mOrder;
     private static PrevOrderAdapter.ClickListener clickListener;
-//    private SharedPreferences prefs;
+    SharedPreferences prefsForImage;
 
 
     PrevOrderAdapter(Context context)
     {
         mInflater = LayoutInflater.from(context);
+        prefsForImage = context.getSharedPreferences("images", Context.MODE_PRIVATE);
     }
 
     @NonNull
@@ -42,6 +44,7 @@ public class PrevOrderAdapter  extends RecyclerView.Adapter<PrevOrderAdapter.Ord
             holder.itemPriceView.setText(itemPrice);
             String quantityText = "Quantity: " + current.getQuantity();
             holder.itemQuantity.setText(quantityText);
+            holder.itemImage.setImageResource(prefsForImage.getInt(current.getItemName(), 0));
         }
         else
             holder.itemTextView.setText(R.string.no_orders);
@@ -69,12 +72,14 @@ public class PrevOrderAdapter  extends RecyclerView.Adapter<PrevOrderAdapter.Ord
         private final TextView itemTextView;
         private final TextView itemPriceView;
         private final TextView itemQuantity;
+        private final ImageView itemImage;
 
         private OrderViewHolder(View itemView) {
             super(itemView);
             itemTextView = itemView.findViewById(R.id.orderItemText);
             itemPriceView = itemView.findViewById(R.id.orderItemPrice);
             itemQuantity = itemView.findViewById(R.id.orderQuantity);
+            itemImage = itemView.findViewById(R.id.itemImage);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

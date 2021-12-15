@@ -9,10 +9,12 @@ import static com.soorajmohan.test.allyoucaneatapplication.PreviousOrderItems.EX
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -40,6 +42,11 @@ public class UpdateOrderItem extends AppCompatActivity implements View.OnClickLi
                     Float.parseFloat(extras.getString(EXTRA_DATA_UPDATE_PRICE, "0.0")));
             userOrder.setId(Integer.parseInt(extras.getString(EXTRA_DATA_ID, "0")));
         }
+
+        SharedPreferences prefsForImage = getSharedPreferences("images", MODE_PRIVATE);
+
+        ImageView itemImage = findViewById(R.id.itemImage);
+        itemImage.setImageResource(prefsForImage.getInt(userOrder.getItemName(), 0));
 
         quantity = userOrder.getQuantity();
 

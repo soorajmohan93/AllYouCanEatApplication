@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -43,6 +44,11 @@ public class AddToOrder extends AppCompatActivity implements View.OnClickListene
             ItemToAddPrice.setText(PriceForItemText);
             ItemToAddDesc.setText(extras.getString(EXTRA_ITEM_DESC_DATA, ""));
         }
+
+        SharedPreferences prefsForImage = getSharedPreferences("images", MODE_PRIVATE);
+
+        ImageView itemImage = findViewById(R.id.itemImage);
+        itemImage.setImageResource(prefsForImage.getInt(itemName, 0));
 
 
         Button increase = findViewById(R.id.quantityIncrease);

@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,12 +22,14 @@ public class NewOrderAdapter extends RecyclerView.Adapter<NewOrderAdapter.OrderV
     private ArrayList<Item> mItems;
     private static ClickListener clickListener;
     private SharedPreferences prefs;
+    SharedPreferences prefsForImage;
 
 
     NewOrderAdapter(Context context)
     {
         mInflater = LayoutInflater.from(context);
         prefs = context.getSharedPreferences("order_data", Context.MODE_PRIVATE);
+        prefsForImage = context.getSharedPreferences("images", Context.MODE_PRIVATE);
     }
 
     @NonNull
@@ -54,6 +57,7 @@ public class NewOrderAdapter extends RecyclerView.Adapter<NewOrderAdapter.OrderV
         }
         else
             holder.itemQuantity.setVisibility(View.INVISIBLE);
+        holder.itemImage.setImageResource(prefsForImage.getInt(current.getItemName(), 0));
     }
 
     void setItems(ArrayList<Item> items){
@@ -76,6 +80,7 @@ public class NewOrderAdapter extends RecyclerView.Adapter<NewOrderAdapter.OrderV
         private final TextView itemDescriptionView;
         private final TextView itemPriceView;
         private final TextView itemQuantity;
+        private final ImageView itemImage;
 
         private OrderViewHolder(View itemView) {
             super(itemView);
@@ -83,6 +88,7 @@ public class NewOrderAdapter extends RecyclerView.Adapter<NewOrderAdapter.OrderV
             itemDescriptionView = itemView.findViewById(R.id.descriptionText);
             itemPriceView = itemView.findViewById(R.id.itemPrice);
             itemQuantity = itemView.findViewById(R.id.quantitySelected);
+            itemImage = itemView.findViewById(R.id.itemImage);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
