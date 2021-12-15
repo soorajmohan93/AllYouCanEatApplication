@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Custom color for light and dark mode included-->
 <resources>
     <color name="blue_200">#5e92f3</color>
     <color name="blue_500">#1565c0</color>

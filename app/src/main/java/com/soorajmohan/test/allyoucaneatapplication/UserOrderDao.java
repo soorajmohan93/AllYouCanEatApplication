@@ -14,6 +14,8 @@ import java.util.List;
 @Dao
 public interface UserOrderDao {
 
+//    Data access objects for order_table
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(UserOrder userOrder);
 

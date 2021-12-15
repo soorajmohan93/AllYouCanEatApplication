@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class PrevOrderAdapter  extends RecyclerView.Adapter<PrevOrderAdapter.OrderViewHolder>{
-
+// Adapter for previous order items recycler view
     private final LayoutInflater mInflater;
     private List<UserOrder> mOrder;
     private static PrevOrderAdapter.ClickListener clickListener;

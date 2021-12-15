@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class OrderIdAdapter extends RecyclerView.Adapter<OrderIdAdapter.OrderIdViewHolder>{
-
+//Adapter for previous order recycler view
     private final LayoutInflater mInflater;
     private List<String> mOrderId;
     private static OrderIdAdapter.ClickListener clickListener;

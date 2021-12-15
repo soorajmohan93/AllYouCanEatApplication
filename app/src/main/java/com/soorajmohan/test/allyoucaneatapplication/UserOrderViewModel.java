@@ -9,6 +9,8 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
+
+//View Model for the Room Database
 public class UserOrderViewModel extends AndroidViewModel
 {
     private UserOrderRepository repository;

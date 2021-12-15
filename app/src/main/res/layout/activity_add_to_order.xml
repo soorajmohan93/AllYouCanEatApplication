@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--This activity is for the Add to Cart Page, it contains
+a header "ADD TO CART", the item and unit price text, an image of the item
+a description of item. user can take the required quantity using
+two buttons and shows the total price. An "ADD TO CART" button to add the item-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"

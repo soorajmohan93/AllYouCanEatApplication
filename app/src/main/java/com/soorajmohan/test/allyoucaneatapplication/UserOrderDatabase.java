@@ -8,7 +8,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
-
+//Database class for Room Database
 @Database(entities = {UserOrder.class}, version = 1, exportSchema = false)
 public abstract class UserOrderDatabase extends RoomDatabase
 {

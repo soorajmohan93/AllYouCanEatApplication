@@ -19,7 +19,9 @@ import android.widget.TextView;
 
 
 public class UpdateOrderItem extends AppCompatActivity implements View.OnClickListener {
+//Activity for updating the order item to Database
 
+    //static variables for sending data to PreviousOrderItem activity
     public static final String EXTRA_REPLY_NAME = "com.soorajmohan.test.allyoucaneatapplication.REPLY_NAME";
     public static final String EXTRA_REPLY_PRICE = "com.soorajmohan.test.allyoucaneatapplication.REPLY_PRICE";
     public static final String EXTRA_REPLY_QUANTITY = "com.soorajmohan.test.allyoucaneatapplication.REPLY_QUANTITY";
@@ -33,6 +35,7 @@ public class UpdateOrderItem extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_order_item);
 
+        //Receives in extra the item name, quantity, unit price, order_id and primary key id
         final Bundle extras = getIntent().getExtras();
         if (extras != null) {
             userOrder = new UserOrder(
@@ -42,7 +45,7 @@ public class UpdateOrderItem extends AppCompatActivity implements View.OnClickLi
                     Float.parseFloat(extras.getString(EXTRA_DATA_UPDATE_PRICE, "0.0")));
             userOrder.setId(Integer.parseInt(extras.getString(EXTRA_DATA_ID, "0")));
         }
-
+        //Shared prefs for images
         SharedPreferences prefsForImage = getSharedPreferences("images", MODE_PRIVATE);
 
         ImageView itemImage = findViewById(R.id.itemImage);
@@ -66,7 +69,7 @@ public class UpdateOrderItem extends AppCompatActivity implements View.OnClickLi
 
         TextView quantityText = findViewById(R.id.quantity);
         quantity = Integer.parseInt(quantityText.getText().toString());
-
+        //Buttons for increasing and decreasing quantity and update the order item
         if(v.getId() == R.id.quantityIncrease)
         {
             quantity += 1;
@@ -78,6 +81,7 @@ public class UpdateOrderItem extends AppCompatActivity implements View.OnClickLi
         else if (v.getId() == R.id.updateToCart)
         {
             Intent replyIntent = new Intent();
+            //if quantity is not changed then don't update
             if (quantity == userOrder.getQuantity())
             {
                 setResult(RESULT_CANCELED, replyIntent);
@@ -113,6 +117,7 @@ public class UpdateOrderItem extends AppCompatActivity implements View.OnClickLi
 
     public void setReply(Intent intent)
     {
+        //Data sent as reply to update to PreviousOrderItem activity
         intent.putExtra(EXTRA_REPLY_NAME, userOrder.getItemName());
         intent.putExtra(EXTRA_REPLY_PRICE, String.valueOf(userOrder.getUnitPrice()));
         intent.putExtra(EXTRA_REPLY_ORDER_ID, String.valueOf(userOrder.getOrderId()));

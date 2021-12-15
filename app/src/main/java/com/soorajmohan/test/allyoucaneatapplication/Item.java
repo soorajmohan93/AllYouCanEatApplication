@@ -1,5 +1,6 @@
 package com.soorajmohan.test.allyoucaneatapplication;
 
+// Item model class which is used for creating the order
 public class Item {
 
     private final String itemName;

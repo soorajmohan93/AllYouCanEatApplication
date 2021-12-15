@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "order_table")
 public class UserOrder {
+    //Class for order_table to store user orders
 
     @PrimaryKey(autoGenerate = true)
     private int id;

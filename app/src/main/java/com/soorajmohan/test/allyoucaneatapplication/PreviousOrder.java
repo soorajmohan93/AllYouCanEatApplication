@@ -23,16 +23,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PreviousOrder extends AppCompatActivity {
-
+/*Previous Order activity lists out all previous order numbers. Orders can be deleted by swiping at cards or using delete
+  all menu to delete all the orders*/
     public static final int ORDER_ID_ACTIVITY_REQUEST_CODE = 1;
     public static final String EXTRA_ORDER_ID = "extra_order_id";
-    private List<Integer> orderId;
     private UserOrderViewModel userOrderViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_previous_order);
+
+        Toast.makeText(PreviousOrder.this,
+                "Tap on the cards to view items in Order. Swipe on card to delete order.", Toast.LENGTH_LONG).show();
 
         userOrderViewModel = ViewModelProviders.of(this).get(UserOrderViewModel.class);
 
@@ -98,6 +101,7 @@ public class PreviousOrder extends AppCompatActivity {
     }
 
     public void launchUpdateOrderActivity(String orderId) {
+        //Order ID is sent to Previous Order Items activity to list out all items of that order
         Intent intent = new Intent(this, PreviousOrderItems.class);
         intent.putExtra(EXTRA_ORDER_ID, orderId);
         startActivityForResult(intent, ORDER_ID_ACTIVITY_REQUEST_CODE);

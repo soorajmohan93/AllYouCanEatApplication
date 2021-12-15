@@ -17,11 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class NewOrderAdapter extends RecyclerView.Adapter<NewOrderAdapter.OrderViewHolder>{
-
+//Adapter for new order/ cart recycler view
     private final LayoutInflater mInflater;
     private ArrayList<Item> mItems;
     private static ClickListener clickListener;
-    private SharedPreferences prefs;
+    private final SharedPreferences prefs;
     SharedPreferences prefsForImage;
 
 

@@ -15,35 +15,30 @@ import android.view.View;
 import java.util.ArrayList;
 
 public class NewOrder extends AppCompatActivity {
-
+//Order Items available are listed in this app.
     private ArrayList<Item> mItem = new ArrayList<>();
 
+    // Static variables for Extra to pass information to other activity (AddToOrder.class)
     public static final int ADD_ITEM_TO_ORDER_ACTIVITY_REQUEST_CODE = 1;
 
     public static final String EXTRA_ITEM_TEXT_DATA = "extra_item_text_to_be_displayed";
     public static final String EXTRA_ITEM_PRICE_DATA = "extra_item_price_to_be_displayed";
     public static final String EXTRA_ITEM_DESC_DATA = "extra_item_description_to_be_displayed";
 
-    private SharedPreferences prefForOrderId;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_order);
-
-
-        prefForOrderId = getSharedPreferences("order_id", MODE_PRIVATE);
-
+        //method to add the items onto a list to display in cards. This method also sets up the Shared preference for Images
         addIntoItem();
 
-
+        //Recycler view to display items
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         NewOrderAdapter adapter = new NewOrderAdapter(this);
         adapter.setItems(mItem);
         recyclerView.setAdapter(adapter);
-
+        //clicking on cards will move the activity to AddToOrder
         adapter.setOnItemClickListener(new NewOrderAdapter.ClickListener() {
             @Override
             public void onItemClick(View v, int position) {
@@ -55,9 +50,11 @@ public class NewOrder extends AppCompatActivity {
     }
 
     public void addIntoItem() {
+        //Shared preference for Images. Key will be item name and the drawable resource will be the value
         SharedPreferences prefForImages = getSharedPreferences("images", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefForImages.edit();
 
+        //Each item is added to the list used by recycler view to display data
         mItem.add(new Item("English Breakfast", "English breakfast consists of fried eggs, sausages, back bacon, tomatoes, mushrooms, fried bread and often a slice of white or black pudding.", 10.00f));
         editor.putInt("English Breakfast", R.drawable.english_breakfast);
         mItem.add(new Item("Quick Salted Caramel Pie", "The filling of the Pie is sweetened condensed milk sprinkled lightly with sea salt and baked until thick and gooey, then chilled in a simple graham cracker crust.", 9.25f));
@@ -91,15 +88,8 @@ public class NewOrder extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+        //menu item for cart activity
         if (item.getItemId() == R.id.placeOrder) {
-            int orderId;
-            if(!prefForOrderId.getString("order_id", "").isEmpty())
-                orderId = Integer.parseInt(prefForOrderId.getString("order_id", "")) + 1;
-            else
-                orderId = 1;
-            SharedPreferences.Editor editor = prefForOrderId.edit();
-            editor.putString("order_id", String.valueOf(orderId));
-            editor.apply();
             startActivity(new Intent(getApplicationContext(), Cart.class));
         } else
             return super.onOptionsItemSelected(item);
@@ -107,6 +97,7 @@ public class NewOrder extends AppCompatActivity {
     }
 
     public void launchUpdateItemActivity(Item item) {
+        //Intent for Add to Order Activity
         Intent intent = new Intent(this, AddToOrder.class);
         intent.putExtra(EXTRA_ITEM_TEXT_DATA, item.getItemName());
         intent.putExtra(EXTRA_ITEM_PRICE_DATA, String.valueOf(item.getItemPrice()));

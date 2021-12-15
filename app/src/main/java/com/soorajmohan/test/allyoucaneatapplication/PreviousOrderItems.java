@@ -26,6 +26,8 @@ import java.util.List;
 
 public class PreviousOrderItems extends AppCompatActivity {
 
+    //All the items of order ID sent from Previous Order activity is listed here
+
     private UserOrderViewModel userOrderViewModel;
 
     public static final int UPDATE_ORDER_ACTIVITY_REQUEST_CODE = 2;
@@ -41,6 +43,9 @@ public class PreviousOrderItems extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_previous_order_items);
+
+        Toast.makeText(PreviousOrderItems.this,
+                "Tap on the cards to edit item in Order. Swipe on card to delete item from order.", Toast.LENGTH_LONG).show();
 
         userOrderViewModel = ViewModelProviders.of(this).get(UserOrderViewModel.class);
 
@@ -66,8 +71,7 @@ public class PreviousOrderItems extends AppCompatActivity {
         String orderText = "Order Number: " + orderId;
         orderNumberHeader.setText(orderText);
 
-
-
+        //Recycler view for order items
         RecyclerView recyclerView = findViewById(R.id.orderRecyclerView);
         final PrevOrderAdapter adapter = new PrevOrderAdapter(this);
 
@@ -90,8 +94,10 @@ public class PreviousOrderItems extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        //swiping will delete the order item
         ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
+            //on move is not used
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
             }
@@ -128,6 +134,7 @@ public class PreviousOrderItems extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (data!=null)
         {
+            //if Update Order Item activity sends the quantity to be changed, its updated at the database
             if (requestCode == UPDATE_ORDER_ACTIVITY_REQUEST_CODE
                     && resultCode == RESULT_OK) {
                 UserOrder userOrder  = new UserOrder(
@@ -136,15 +143,21 @@ public class PreviousOrderItems extends AppCompatActivity {
                         Integer.parseInt(data.getStringExtra(UpdateOrderItem.EXTRA_REPLY_ORDER_ID)),
                         Float.parseFloat(data.getStringExtra(UpdateOrderItem.EXTRA_REPLY_PRICE)));
                 userOrder.setId(Integer.parseInt(data.getStringExtra(UpdateOrderItem.EXTRA_REPLY_ID)));
-
+//              if quantity is zero then the item is deleted
                 if (userOrder.getQuantity() == 0)
                 {
                     userOrderViewModel.deleteOrder(userOrder);
+                    Toast.makeText(PreviousOrderItems.this,
+                            "Deleting " + userOrder.getItemName(), Toast.LENGTH_LONG).show();
                 }
+                // the quantity of item is updated here
                 else{
                     userOrderViewModel.update(userOrder);
+                    Toast.makeText(PreviousOrderItems.this,
+                            "Updating " + userOrder.getItemName() + " to quantity " + userOrder.getQuantity(), Toast.LENGTH_LONG).show();
                 }
             } else {
+                //if no quantity changes a toast is sent saying nothing has changed
                 Toast.makeText(
                         this, "Nothing has changed", Toast.LENGTH_LONG).show();
             }

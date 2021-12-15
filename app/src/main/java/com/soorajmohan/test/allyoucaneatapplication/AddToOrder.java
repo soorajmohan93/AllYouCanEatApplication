@@ -14,8 +14,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-
+//class for add to order activity
 public class AddToOrder extends AppCompatActivity implements View.OnClickListener {
 
     private SharedPreferences prefs;
@@ -28,12 +29,13 @@ public class AddToOrder extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_to_order);
 
+        //order_data shared preference will hold all the quantity and item price value with item name as key
         prefs = getSharedPreferences("order_data", MODE_PRIVATE);
         TextView ItemToAdd = findViewById(R.id.itemToAdd);
         TextView ItemToAddPrice = findViewById(R.id.itemToAddPrice);
         TextView ItemToAddDesc = findViewById(R.id.itemToAddDescription);
 
-
+        // Name, price and description from NewOrder activity
         final Bundle extras = getIntent().getExtras();
 
         if(extras != null)
@@ -45,6 +47,7 @@ public class AddToOrder extends AppCompatActivity implements View.OnClickListene
             ItemToAddDesc.setText(extras.getString(EXTRA_ITEM_DESC_DATA, ""));
         }
 
+//        Shared Prefs for images
         SharedPreferences prefsForImage = getSharedPreferences("images", MODE_PRIVATE);
 
         ImageView itemImage = findViewById(R.id.itemImage);
@@ -79,20 +82,27 @@ public class AddToOrder extends AppCompatActivity implements View.OnClickListene
         quantity = Integer.parseInt(quantityText.getText().toString());
 
 
-
+//        Buttons for increasing and decreasing quantity and add to cart
         if (v.getId() == R.id.quantityIncrease)
             quantity = quantity + 1;
         else if (v.getId() == R.id.quantityReduce)
             quantity = quantity - 1;
         else if (v.getId() == R.id.addToCart){
             SharedPreferences.Editor editor = prefs.edit();
-            if (quantity == 0)
+            if (quantity == 0) {
                 editor.remove(itemName);
+                Toast.makeText(AddToOrder.this,
+                        itemName + " removed from cart ", Toast.LENGTH_LONG).show();
+            }
             else {
                 editor.putString(itemName, quantity + "<>" + itemTotalPrice);
+                Toast.makeText(AddToOrder.this,
+                        itemName + "(" + quantity + ") added to cart", Toast.LENGTH_LONG).show();
             }
             editor.apply();
+
             startActivity(new Intent(getApplicationContext(), NewOrder.class));
+            return;
         }
 
         updateScreen();

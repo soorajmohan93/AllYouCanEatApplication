@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Previous order activity uses a recycler view to show each orders
+in the database. Swipe on each order to delete the entire order, tap to
+list the items. Delete all menu is also available which would delete all orders-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
