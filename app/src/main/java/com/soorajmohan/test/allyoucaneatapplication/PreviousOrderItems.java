@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,6 +35,8 @@ public class PreviousOrderItems extends AppCompatActivity {
     public static final String EXTRA_DATA_UPDATE_ORDER_ID = "extra_order_id_value";
     public static final String EXTRA_DATA_ID = "extra_data_id";
 
+    SharedPreferences prefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +44,22 @@ public class PreviousOrderItems extends AppCompatActivity {
 
         userOrderViewModel = ViewModelProviders.of(this).get(UserOrderViewModel.class);
 
+        prefs = getSharedPreferences("prevOrderId", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
         final Bundle extras = getIntent().getExtras();
 
-        int orderId = 0;
+        int orderId;
 
         if(extras != null)
         {
             orderId = Integer.parseInt(extras.getString(EXTRA_ORDER_ID, ""));
+            editor.putString("orderId", (extras.getString(EXTRA_ORDER_ID, "")));
+            editor.apply();
+        }
+        else
+        {
+            orderId = Integer.parseInt(prefs.getString("orderId",""));
         }
 
         TextView orderNumberHeader = findViewById(R.id.prevOrderNumber);

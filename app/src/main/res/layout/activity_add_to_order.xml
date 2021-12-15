@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,7 +25,7 @@
                 style="@style/AllText.TitleStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/AddToOrderHeading" />
+                android:text="@string/add_to_cart" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -81,6 +80,7 @@
                 <!-- Item reduce-->
                 <Button
                     android:id="@+id/quantityReduce"
+                    style="@style/ButtonStyle.ReduceButton"
                     android:layout_width="48dp"
                     android:layout_height="wrap_content"
                     android:text="@string/Reduce"
@@ -102,8 +102,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.3" />
+
                 <Button
                     android:id="@+id/quantityIncrease"
+                    style="@style/ButtonStyle.IncreaseButton"
                     android:layout_width="48dp"
                     android:layout_height="wrap_content"
                     android:text="@string/Increase"
@@ -133,7 +135,8 @@
                     android:id="@+id/addToCart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/add_to_cart" />
+                    android:text="@string/add_to_cart"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

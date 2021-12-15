@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
+    <color name="blue_200">#5e92f3</color>
+    <color name="blue_500">#1565c0</color>
+    <color name="blue_700">#003c8f</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="TitleColor">#2196F3</color>
     <color name="ItemColor">#0D3C61</color>
-    <color name="DescColor">#7D8083</color>
+    <color name="DescColor">#707070</color>
+    <color name="quantity_color">#37474f</color>
+    <color name="green_button">#388e3c</color>
+    <color name="red_button">#E57373</color>
+    <color name="add_update_button">#004D40</color>
+    <color name="TitleColor_dark">#90caf9</color>
+    <color name="ItemColor_dark">#e0f7fa</color>
+    <color name="DescColor_dark">#e0e0e0</color>
+    <color name="quantity_color_dark">#b0bec5</color>
+    <color name="green_button_dark">#255d00</color>
+    <color name="red_button_dark">#c43e00</color>
+    <color name="add_update_button_dark">#4b830d</color>
 </resources>

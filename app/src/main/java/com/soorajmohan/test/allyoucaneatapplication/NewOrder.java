@@ -57,7 +57,7 @@ public class NewOrder extends AppCompatActivity {
 
     public void addIntoItem() {
         mItem.add(new Item("English Breakfast", "English breakfast consists of fried eggs, sausages, back bacon, tomatoes, mushrooms, fried bread and often a slice of white or black pudding.", 10.00f));
-        mItem.add(new Item("Quick Salted Caramel Pie.", "The filling of the Pie is sweetened condensed milk sprinkled lightly with sea salt and baked until thick and gooey, then chilled in a simple graham cracker crust.", 9.25f));
+        mItem.add(new Item("Quick Salted Caramel Pie", "The filling of the Pie is sweetened condensed milk sprinkled lightly with sea salt and baked until thick and gooey, then chilled in a simple graham cracker crust.", 9.25f));
         mItem.add(new Item("Santa Maria-Style Barbecue", "Grilled beef that's served with beans, garlic bread, salad, macaroni salad, and chunky salsa.", 11.25f));
         mItem.add(new Item("Dungeness Crab Cake", "Dungeness crabmeat with mayonnaise, red bell peppers, celery, onions, herbs, panko breadcrumbs, seasonings, and eggs, and then shaping the resulting mixture into round cakes.", 12.75f));
         mItem.add(new Item("Amish Chicken", "Amish chicken is a traditional American poultry dish. It is made with a combination of chicken, flour, garlic powder, heavy cream, paprika, water, salt, and pepper. The chicken is dredged in flour and seasonings, and it is then covered with a combination of cream and water.", 8.50f));
